@@ -1,11 +1,13 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
+const deviceSize = Dimensions.get('window');
+
 export default StyleSheet.create({
   container: {
     flex: 1,
   },
   image: {
-    height: Dimensions.get('window').height / 4,
+    height: deviceSize.height / 4,
     backgroundColor: '#e0e0e0',
   },
   name_label: {

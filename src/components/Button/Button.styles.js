@@ -30,7 +30,6 @@ export default {
   outline: StyleSheet.create({
     container: {
       borderWidth: 1,
-      borderRadius: '#37474f',
       ...base_styles.container,
     },
     text: {

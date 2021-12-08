@@ -12,7 +12,8 @@ export default function Table() {
   const [tables, setTables] = useState(mock_data.tables);
 
   function handleNavigateTableDetail(selectedTable) {
-    navigation.navigate('TableUpdatePage', {table: selectedTable});
+    selectedTable.isActive &&
+      navigation.navigate('TableUpdatePage', {table: selectedTable});
   }
 
   const renderTables = ({item}) => (
@@ -33,7 +34,12 @@ export default function Table() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList data={tables} renderItem={renderTables} numColumns={2} />
+      <FlatList
+        keyExtractor={item => item.id}
+        data={tables}
+        renderItem={renderTables}
+        numColumns={2}
+      />
     </SafeAreaView>
   );
 }
