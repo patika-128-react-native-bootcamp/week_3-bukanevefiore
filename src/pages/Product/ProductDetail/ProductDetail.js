@@ -9,6 +9,25 @@ export default function ProductDetail() {
 
   const {product} = route.params;
 
+  function ListItem(props) {
+    return (
+      <View style={styles.badge_container}>
+        <Text style={styles.badge_label}>{props.ing}</Text>
+      </View>
+    );
+  }
+
+  function IngredientsList() {
+    const ingredients = product.ingredients.map(ing => (
+      <ListItem key={ing.toString()} ing={ing} />
+    ));
+    return (
+      <ScrollView horizontal bounces={false}>
+        {ingredients}
+      </ScrollView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -22,15 +41,7 @@ export default function ProductDetail() {
           <Text style={styles.name_label}>{product.name}</Text>
           {product.isPopular && <Icon name="star" color="orange" size={25} />}
         </View>
-        <ScrollView horizontal bounces={false}>
-          {product.ingredients.map((ing, ind) => {
-            return (
-              <View style={styles.badge_container}>
-                <Text style={styles.badge_label}>{ing}</Text>
-              </View>
-            );
-          })}
-        </ScrollView>
+        {IngredientsList()}
         <View style={styles.description_container}>
           <Text style={styles.description}>{product.description}</Text>
         </View>
@@ -39,3 +50,4 @@ export default function ProductDetail() {
     </SafeAreaView>
   );
 }
+

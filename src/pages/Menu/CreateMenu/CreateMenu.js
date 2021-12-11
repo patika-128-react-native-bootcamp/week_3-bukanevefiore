@@ -15,6 +15,7 @@ export default function CreateMenu() {
   const [price, setPrice] = useState();
 
   const route = useRoute();
+  const menuName = route.params.menu.name
 
   function handleNavigateDetail() {
     const fd = {
@@ -24,12 +25,16 @@ export default function CreateMenu() {
       price: price,
     };
 
+    if(!name || !description || !ingredients || !price) {
+      return;
+    }
+
     navigation.navigate('MenuDetailPage', {fd});
   }
 
   return (
     <SafeAreaView>
-      <Text style={styles.menu_name}>{route.params.menu.name}</Text>
+      <Text style={styles.menu_name}>{menuName}</Text>
       <Input label="Name" onChangeText={value => setName(value)} />
       <Input
         label="Description"

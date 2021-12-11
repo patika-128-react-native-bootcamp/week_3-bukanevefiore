@@ -1,24 +1,25 @@
 import {StyleSheet} from 'react-native';
+import spacing from '../../../styles/spacing';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    margin: 10,
+    margin: spacing.normal,
   },
   name_label: {
     fontWeight: 'bold',
-    margin: 5,
+    margin: spacing.tiny,
     textAlign: 'center',
     color: 'black',
-    fontSize: 20,
+    fontSize: spacing.huge,
   },
   order_container: {
-    margin: 5,
+    margin: spacing.tiny,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   order_name: {
-    fontSize: 15,
+    fontSize: spacing.large,
   },
   order_price: {
     fontWeight: 'bold',
@@ -27,7 +28,7 @@ export default StyleSheet.create({
   total: {
     fontSize: 25,
     fontWeight: 'bold',
-    marginTop: 10,
+    marginTop: spacing.normal,
     textAlign: 'right',
   },
 });

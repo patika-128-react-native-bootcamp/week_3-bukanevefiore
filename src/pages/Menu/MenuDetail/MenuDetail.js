@@ -10,7 +10,7 @@ export default function MenuDetail() {
 
   const renderIngredients = item => {
     return (
-      <View style={styles.badge_container}>
+      <View key={item.toString()} style={styles.badge_container}>
         <Text style={styles.badge_label}>{item}</Text>
       </View>
     );
@@ -24,7 +24,7 @@ export default function MenuDetail() {
         <Text style={styles.label}>Price: {fd.price}</Text>
         <Text style={styles.label}>Ingredients:</Text>
         <View style={styles.ingredients}>
-          {fd.ingredients.split(',').map(renderIngredients)}
+          {fd.ingredients && fd.ingredients.split(',').map(renderIngredients)}
         </View>
       </View>
     </SafeAreaView>
